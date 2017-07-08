@@ -1,1 +1,1 @@
-react todos
+React Todo App (Gulp+Typescript)
