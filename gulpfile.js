@@ -17,9 +17,13 @@ gulp.task('scripts', function () {
 
     var tsConfig = require("./tsconfig.json").compilerOptions;
 
-    gulp.src('./src/component/*.+(ts|tsx)')
+    gulp.src(['./src/component/*.+(ts|tsx)'])
         .pipe(typescript(tsConfig))
         .pipe(gulp.dest('./dist/component/'));
+
+    gulp.src(['./src/*.+(ts|tsx)'])
+        .pipe(typescript(tsConfig))
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('styles', function () {
