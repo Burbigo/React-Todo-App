@@ -17,5 +17,12 @@
   },
   "homepage": "https://github.com/Burbigo/React-Todo-App#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-typescript": "^3.2.0",
+    "gulp-uglify": "^3.0.0",
+    "typescript": "^2.4.1"
   }
 }
