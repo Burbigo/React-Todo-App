@@ -38,10 +38,6 @@ gulp.task('watch', function () {
     gulp.watch('./src/*.html', ['copy']).on('change', reload);
 });
 
-gulp.task('on-change', function () {
-
-});
-
 gulp.task('default', ['start']);
 
-gulp.task('start', ['scripts', 'styles', 'copy', 'server', 'watch', 'on-change']);
+gulp.task('start', ['scripts', 'styles', 'copy', 'server', 'watch']);
