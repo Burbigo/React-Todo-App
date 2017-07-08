@@ -1,5 +1,5 @@
 
-Copyright (c) 2017, Rostyslav Gutiy  <burbigo123@gmail.com>
+Copyright (c) 2017, Rostyslav Hutii  <burbigo123@gmail.com>
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
