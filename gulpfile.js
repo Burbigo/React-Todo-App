@@ -14,9 +14,11 @@ gulp.task('server', function () {
 });
 
 gulp.task('scripts', function () {
+
+    var tsConfig = require("./tsconfig.json").compilerOptions;
+
     gulp.src('./src/component/*.+(ts|tsx)')
-        .pipe(typescript())
-        .pipe(uglify())
+        .pipe(typescript(tsConfig))
         .pipe(gulp.dest('./dist/component/'));
 });
 
