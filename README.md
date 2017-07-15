@@ -1,1 +1,1 @@
-React Todo App (Gulp+Typescript)
+React Todo App (Webpack+Typescript)
