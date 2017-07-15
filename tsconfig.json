@@ -1,27 +1,13 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist",
-    "sourceMap": false,
-    "noImplicitAny": false,
-    "target": "esnext",
-    "jsx": "react",
-    "noResolve": false,
-    "module": "commonjs",
-    "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "noImplicitReturns": true,
-    "allowUnusedLabels": false,
-    "allowUnreachableCode": false,
-    "reactNamespace": "React",
-    "alwaysStrict": false,
-    "noImplicitUseStrict": true,
-    "noImplicitThis": false,
-    "strictNullChecks": false,
-    "moduleResolution": "node",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
-    "strict": true
-  }
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react"
+    },
+    "include": [
+        "./src/components/*"
+    ]
 }
