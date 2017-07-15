@@ -20,6 +20,7 @@ export interface TodoAppProps {
 }
 
 export interface TodoAppState {
+    todos: Array<{ task: string, isComplited: boolean }>;
 }
 
 export class App extends React.Component<TodoAppProps, TodoAppState> {
@@ -30,15 +31,34 @@ export class App extends React.Component<TodoAppProps, TodoAppState> {
         this.state = {
             todos: todos
         };
-    }
 
-    render() {
+        this.bindMethods();
+    };
+
+    public render() {
         return (
             <div>
                 <h1>React Todo App</h1>
-                <InputTodoItem />
-                <TodoList todos={todos} />
+                <InputTodoItem
+                    createNewTask={this.createNewTask} />
+                <TodoList
+                    todos={this.state.todos} />
             </div>
         );
+    };
+
+    private bindMethods() {
+        this.createNewTask = this.createNewTask.bind(this);
+    };
+
+    private createNewTask(newTask) {
+        this.state.todos.push({
+            task: newTask,
+            isComplited: false
+        });
+
+        this.setState({
+            todos: this.state.todos
+        });
     };
 }
