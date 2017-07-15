@@ -10,7 +10,6 @@ export interface TodoListState {
 }
 
 export class TodoList extends React.Component<TodoListProps, TodoListState> {
-    private listItems = this.renderListItems();
 
     public constructor(props) {
         super(props);
@@ -19,15 +18,18 @@ export class TodoList extends React.Component<TodoListProps, TodoListState> {
     }
 
     public render() {
+        var listItems = this.renderListItems();
+
         return (
             <table>
                 <TodoListHeader />
                 <tbody>
-                    {this.listItems}
+                    {listItems}
                 </tbody>
             </table >
         );
     };
+    
  
     private bindMethods() {
         this.renderListItems = this.renderListItems.bind(this);
