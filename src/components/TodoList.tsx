@@ -4,6 +4,7 @@ import { TodoListItem } from "./todoListItem"
 
 export interface TodoListProps {
     todos: Array<{ task: string, isComplited: boolean }>;
+    toggleTask: Function;
 }
 
 export interface TodoListState {
@@ -29,15 +30,16 @@ export class TodoList extends React.Component<TodoListProps, TodoListState> {
             </table >
         );
     };
-    
- 
+
+
     private bindMethods() {
         this.renderListItems = this.renderListItems.bind(this);
     };
 
     private renderListItems() {
         var todos = this.props.todos.map((todoItem, index) =>
-            <TodoListItem key={index} {...todoItem} />);
+            <TodoListItem key={index} {...todoItem}
+                toggleTask={this.props.toggleTask} />);
 
         return todos;
     }

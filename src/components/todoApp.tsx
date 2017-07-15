@@ -42,13 +42,27 @@ export class App extends React.Component<TodoAppProps, TodoAppState> {
                 <InputTodoItem
                     createNewTask={this.createNewTask} />
                 <TodoList
-                    todos={this.state.todos} />
+                    todos={this.state.todos}
+                    toggleTask={this.toggleTask} />
             </div>
         );
     };
 
     private bindMethods() {
         this.createNewTask = this.createNewTask.bind(this);
+        this.toggleTask = this.toggleTask.bind(this);
+    };
+
+    private toggleTask(task) {
+        var toggledTask = this.state.todos.find((todo) => {
+            return todo.task === task;
+        })
+
+        toggledTask.isComplited = !toggledTask.isComplited;
+
+        this.setState({
+            todos: this.state.todos
+        });
     };
 
     private createNewTask(newTask) {
