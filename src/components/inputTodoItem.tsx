@@ -40,6 +40,7 @@ export class InputTodoItem extends React.Component<inputTodoItemProps, inputTodo
         var newTask = this.refs.newTodoItem.value;
         if (newTask) {
             this.props.createNewTask(newTask);
+            this.refs.newTodoItem.value = "";
         }
     }
 }
