@@ -1,3 +1,5 @@
+$buttonWidth: 60px;
+
 body {
     color: blue;
      
@@ -10,22 +12,32 @@ body {
 
         input {
             width: 175px;
+            margin-right: 10px;
         }
         
         table {
             padding-top: 20px;
             width: 270px;
+            text-align: left;
 
             td:nth-child(1) {
-                text-align: left;
-            }
+                max-width: 140px;
 
+                input {
+                    max-width: 130px;
+                }
+            }
+            
             td:nth-child(2) {
-                text-align: right;
-                width: 100px;
+                width: 2 * $buttonWidth;
+
+                 button {
+                     width: $buttonWidth
+                 }
             }
 
             thead {
+                text-align: center;
                 color: black;
             }
         }

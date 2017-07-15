@@ -3,14 +3,16 @@ import { TodoListHeader } from "./todoListHeader"
 import { TodoListItem } from "./todoListItem"
 
 export interface TodoListProps {
-    todos: Array<{ task: string, isComplited: boolean }>;
+    todos: Array<{ task: string, isCompleted: boolean }>;
+    toggleTask: Function;
+    saveTask: Function;
+    deleteTask: Function;
 }
 
 export interface TodoListState {
 }
 
 export class TodoList extends React.Component<TodoListProps, TodoListState> {
-    private listItems = this.renderListItems();
 
     public constructor(props) {
         super(props);
@@ -19,23 +21,29 @@ export class TodoList extends React.Component<TodoListProps, TodoListState> {
     }
 
     public render() {
+        var listItems = this.renderListItems();
+
         return (
             <table>
                 <TodoListHeader />
                 <tbody>
-                    {this.listItems}
+                    {listItems}
                 </tbody>
             </table >
         );
     };
- 
+
+
     private bindMethods() {
         this.renderListItems = this.renderListItems.bind(this);
     };
 
     private renderListItems() {
         var todos = this.props.todos.map((todoItem, index) =>
-            <TodoListItem key={index} {...todoItem} />);
+            <TodoListItem key={index} {...todoItem}
+                toggleTask={this.props.toggleTask}
+                saveTask={this.props.saveTask}
+                deleteTask={this.props.deleteTask} />);
 
         return todos;
     }
