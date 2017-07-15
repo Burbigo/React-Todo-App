@@ -4,6 +4,7 @@ export interface TodoListItemProps {
     task: string;
     isCompleted: boolean;
     toggleTask: Function;
+    saveTask: Function;
 }
 
 export interface TodoListItemState {
@@ -11,7 +12,12 @@ export interface TodoListItemState {
 }
 
 export class TodoListItem extends React.Component<TodoListItemProps, TodoListItemState> {
-
+ 
+    public refs: {
+        [string: string]: any;
+        editTask: HTMLInputElement;
+    }
+    
     constructor(props) {
         super(props);
 
@@ -75,12 +81,21 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
             cursor: "pointer"
         };
 
-        return (
-            <td style={taskStyle}
-                onClick={this.onTaskClick.bind(this, this.props.task)}>
-                {this.props.task}
+        return (this.state.isEditing) ? (
+            <td>
+                <form onSubmit={this.onSaveClick}>
+                    <input type="text" defaultValue={this.props.task}
+                        ref="editTask" />
+                </form>
             </td>
+
         )
+            : (
+                <td style={taskStyle}
+                    onClick={this.onTaskClick.bind(this, this.props.task)}>
+                    {this.props.task}
+                </td>
+            )
     }
 
     private onTaskClick(task) {
@@ -98,8 +113,17 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
 
     }
 
-    private onSaveClick() {
+    private onSaveClick(event) {
+        event.preventDefault();
+        var newTask = this.refs.editTask.value;
+        if (newTask) {
+            var oldTask = this.props.task;
+            this.props.saveTask(oldTask, newTask);
 
+            this.setState({
+                isEditing: false
+            });
+        }
     }
 
     private onCancelClick() {
