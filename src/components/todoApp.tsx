@@ -44,7 +44,8 @@ export class App extends React.Component<TodoAppProps, TodoAppState> {
                 <TodoList
                     todos={this.state.todos}
                     toggleTask={this.toggleTask}
-                    saveTask={this.saveTask} />
+                    saveTask={this.saveTask} 
+                    deleteTask={this.deleteTask}/>
             </div>
         );
     };
@@ -53,6 +54,7 @@ export class App extends React.Component<TodoAppProps, TodoAppState> {
         this.createNewTask = this.createNewTask.bind(this);
         this.toggleTask = this.toggleTask.bind(this);
         this.saveTask = this.saveTask.bind(this);
+        this.deleteTask = this.deleteTask.bind(this);
     };
 
     private toggleTask(task) {
@@ -88,5 +90,16 @@ export class App extends React.Component<TodoAppProps, TodoAppState> {
         this.setState({
             todos: this.state.todos
         });
+    };
+
+    private deleteTask(deleteTask) {
+        var index = this.state.todos.map(todo => todo.task).indexOf(deleteTask)
+
+        if (index > -1) {
+            this.state.todos.splice(index, 1);
+            this.setState({
+                todos: this.state.todos
+            })
+        }
     }
 }

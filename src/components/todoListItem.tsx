@@ -5,6 +5,7 @@ export interface TodoListItemProps {
     isCompleted: boolean;
     toggleTask: Function;
     saveTask: Function;
+    deleteTask: Function;
 }
 
 export interface TodoListItemState {
@@ -46,7 +47,6 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
         this.renderActionsSection = this.renderActionsSection.bind(this);
         this.renderTaskSection = this.renderTaskSection.bind(this);
         this.onEditClick = this.onEditClick.bind(this);
-        this.onDeleteClick = this.onDeleteClick.bind(this);
         this.onSaveClick = this.onSaveClick.bind(this);
         this.onCancelClick = this.onCancelClick.bind(this);
     }
@@ -66,7 +66,7 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
                     <button className="todo-edit-btn"
                         onClick={this.onEditClick}>Edit</button>
                     <button className="todo-delete-btn"
-                        onClick={this.onDeleteClick}>Delete</button>
+                        onClick={this.onDeleteClick.bind(this, this.props.task)}>Delete</button>
                 </td>
             )
     }
@@ -109,8 +109,8 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
 
     }
 
-    private onDeleteClick() {
-
+    private onDeleteClick(task) {
+        this.props.deleteTask(task)
     }
 
     private onSaveClick(event) {

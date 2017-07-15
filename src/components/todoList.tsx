@@ -6,6 +6,7 @@ export interface TodoListProps {
     todos: Array<{ task: string, isCompleted: boolean }>;
     toggleTask: Function;
     saveTask: Function;
+    deleteTask: Function;
 }
 
 export interface TodoListState {
@@ -41,7 +42,8 @@ export class TodoList extends React.Component<TodoListProps, TodoListState> {
         var todos = this.props.todos.map((todoItem, index) =>
             <TodoListItem key={index} {...todoItem}
                 toggleTask={this.props.toggleTask}
-                saveTask={this.props.saveTask} />);
+                saveTask={this.props.saveTask}
+                deleteTask={this.props.deleteTask} />);
 
         return todos;
     }
