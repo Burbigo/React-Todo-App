@@ -1,14 +1,16 @@
 import * as React from 'react';
-import { TodoList } from "./TodoList"
+import { TodoList } from "./todoList"
+import { InputTodoItem } from "./inputTodoItem"
+
 
 const todos = [
     {
-        task: "make todos app",
+        task: "Make todos app",
         isComplited: false
     },
 
     {
-        task: "Dring a beer",
+        task: "Drink a beer",
         isComplited: true
     }
 ];
@@ -34,7 +36,8 @@ export class App extends React.Component<TodoAppProps, TodoAppState> {
         return (
             <div>
                 <h1>React Todo App</h1>
-                <TodoList />
+                <InputTodoItem />
+                <TodoList todos={todos} />
             </div>
         );
     };

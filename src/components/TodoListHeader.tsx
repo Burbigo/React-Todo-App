@@ -9,10 +9,12 @@ export interface TodoListHeaderState {
 export class TodoListHeader extends React.Component<TodoListHeaderProps, TodoListHeaderState> {
     render() {
         return (
-            <div>
-                <th>Task</th>
-                <th>Action</th>
-            </div>
+            <thead>
+                <tr>
+                    <th className="task-header-title">Task</th>
+                    <th className="action-header-title">Action</th>
+                </tr>
+            </thead>
         );
     };
 }
