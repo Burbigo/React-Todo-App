@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
     //   context: path.resolve(__dirname, './src'),
@@ -37,7 +38,13 @@ module.exports = {
         "react": "React",
         "react-dom": "ReactDOM"
     },
+    watch: true,
     plugins: [
-        new ExtractTextPlugin('main.css')
+        new ExtractTextPlugin('main.css'),
+        new BrowserSyncPlugin({
+            host: 'localhost',
+            port: 3000,
+            server: { baseDir: "./" }
+        })
     ]
 };
