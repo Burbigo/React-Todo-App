@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export interface TodoListItemProps {
     task: string;
-    isComplited: boolean;
+    isCompleted: boolean;
     toggleTask: Function;
 }
 
@@ -67,11 +67,11 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
 
     private renderTaskSection() {
 
-        var isComplited = this.props.isComplited;
+        var isCompleted = this.props.isCompleted;
 
         var taskStyle = {
-            textDecorationLine: isComplited ? "line-through" : "",
-            color: isComplited ? "grey" : "blue",
+            textDecorationLine: isCompleted ? "line-through" : "",
+            color: isCompleted ? "grey" : "blue",
             cursor: "pointer"
         };
 

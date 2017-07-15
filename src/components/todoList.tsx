@@ -3,7 +3,7 @@ import { TodoListHeader } from "./todoListHeader"
 import { TodoListItem } from "./todoListItem"
 
 export interface TodoListProps {
-    todos: Array<{ task: string, isComplited: boolean }>;
+    todos: Array<{ task: string, isCompleted: boolean }>;
     toggleTask: Function;
 }
 

@@ -6,12 +6,12 @@ import { InputTodoItem } from "./inputTodoItem"
 const todos = [
     {
         task: "Make todos app",
-        isComplited: false
+        isCompleted: false
     },
 
     {
         task: "Drink a beer",
-        isComplited: true
+        isCompleted: true
     }
 ];
 
@@ -20,7 +20,7 @@ export interface TodoAppProps {
 }
 
 export interface TodoAppState {
-    todos: Array<{ task: string, isComplited: boolean }>;
+    todos: Array<{ task: string, isCompleted: boolean }>;
 }
 
 export class App extends React.Component<TodoAppProps, TodoAppState> {
@@ -58,7 +58,7 @@ export class App extends React.Component<TodoAppProps, TodoAppState> {
             return todo.task === task;
         })
 
-        toggledTask.isComplited = !toggledTask.isComplited;
+        toggledTask.isCompleted = !toggledTask.isCompleted;
 
         this.setState({
             todos: this.state.todos
@@ -68,7 +68,7 @@ export class App extends React.Component<TodoAppProps, TodoAppState> {
     private createNewTask(newTask) {
         this.state.todos.push({
             task: newTask,
-            isComplited: false
+            isCompleted: false
         });
 
         this.setState({
