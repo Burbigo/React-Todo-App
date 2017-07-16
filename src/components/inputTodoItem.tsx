@@ -2,6 +2,7 @@ import * as React from 'react';
 
 export interface inputTodoItemProps {
     createNewTask: Function;
+    todos: Array<{ task: string, isCompleted: boolean }>;
 }
 
 export interface inputTodoItemState {
@@ -32,15 +33,28 @@ export class InputTodoItem extends React.Component<inputTodoItemProps, inputTodo
 
     private bindMethods() {
         this.onSubmitClick = this.onSubmitClick.bind(this);
+        this.validateTask = this.validateTask.bind(this);
     }
 
     private onSubmitClick(event) {
         event.preventDefault();
 
         var newTask = this.refs.newTodoItem.value;
-        if (newTask) {
+        var isValidTask = this.validateTask(newTask);
+        if (isValidTask) {
             this.props.createNewTask(newTask);
             this.refs.newTodoItem.value = "";
         }
+    }
+
+    private validateTask(task) {
+        if (!task)
+            return false;
+
+        var isTaskAlreadyExist = this.props.todos.some((todo) => {
+            return todo.task === task;
+        });
+
+        return !isTaskAlreadyExist;
     }
 }
