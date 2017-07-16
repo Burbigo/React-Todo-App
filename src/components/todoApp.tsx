@@ -40,7 +40,8 @@ export class App extends React.Component<TodoAppProps, TodoAppState> {
             <div>
                 <h1>React Todo App</h1>
                 <InputTodoItem
-                    createNewTask={this.createNewTask} />
+                    createNewTask={this.createNewTask} 
+                    todos={this.state.todos} />
                 <TodoList
                     todos={this.state.todos}
                     toggleTask={this.toggleTask}
