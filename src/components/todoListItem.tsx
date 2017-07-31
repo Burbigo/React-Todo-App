@@ -61,14 +61,14 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
                     onClick={this.onCancelClick}>Cancel</button>
             </td>
         )
-            : (
+            : (this.props.isCompleted) ?
+                <td></td> :
                 <td>
                     <button className="todo-edit-btn"
                         onClick={this.onEditClick}>Edit</button>
                     <button className="todo-delete-btn"
                         onClick={this.onDeleteClick.bind(this, this.props.task)}>Delete</button>
                 </td>
-            )
     }
 
     private renderTaskSection() {
