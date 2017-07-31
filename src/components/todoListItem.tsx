@@ -57,7 +57,7 @@ export class TodoListItem extends React.Component<TodoListItemProps, TodoListIte
             <td>
                 <button className="todo-edit-btn"
                     onClick={this.onSaveClick}>Save</button>
-                <button className="todo-delete-btn"
+                <button className="todo-cancel-btn"
                     onClick={this.onCancelClick}>Cancel</button>
             </td>
         )
